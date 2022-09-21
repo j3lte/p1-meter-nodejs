@@ -83,7 +83,7 @@ export class Parsed {
             pf_long,
         } = this.values;
         return {
-            time: ts,
+            time: `${ts}`,
             dal: t_1,
             piek: t_2,
             huidig: delivery,

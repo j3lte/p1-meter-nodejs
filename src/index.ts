@@ -5,7 +5,9 @@ import { Parsed } from "./parser/Parsed";
 import { startSerial } from "./serial";
 
 const app = new Koa();
+
 let isTimerEnabled = false;
+let lastTimeStamp = 0;
 
 console.log(`==== P1 Server listen on ${serverPort} ====`);
 
@@ -29,10 +31,12 @@ setInterval(() => {
         !isTimerEnabled ||
         !mqtt.client ||
         !mqtt.client.connected ||
-        parsed.info.ts === 0
+        parsed.info.ts === 0 ||
+        parsed.info.ts === lastTimeStamp
     ) {
         return;
     }
+    lastTimeStamp = parsed.info.ts;
     mqtt.publish(mqttTopic, parsed.dutchInfo);
 }, 10000);
 
