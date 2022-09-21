@@ -59,14 +59,16 @@ export const CODES: Code[] = [
             const arr = timeStapStr.match(/.{1,2}/g);
             if (arr) {
                 const [year, month, day, hour, minute, second] = arr;
-                return new Date(
+                const timeStamp = +new Date(
                     parseInt(year, 10) + 2000,
                     parseInt(month, 10) - 1,
                     parseInt(day, 10),
                     parseInt(hour, 10),
                     parseInt(minute, 10),
                     parseInt(second, 10)
-                ).getTime();
+                );
+                const unixTimeStamp = (timeStamp / 1000) | 0;
+                return unixTimeStamp;
             }
             return 0;
         },

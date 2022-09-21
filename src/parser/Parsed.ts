@@ -83,17 +83,17 @@ export class Parsed {
             pf_long,
         } = this.values;
         return {
-            time: `${ts}`,
+            time: ts,
             dal: t_1,
             piek: t_2,
             huidig: delivery,
             tarief: tariff,
-            power: {
-                voltage,
-                current,
-                pf,
-                pf_long,
-            },
+            // power: {
+            //     voltage,
+            //     current,
+            //     pf,
+            //     pf_long,
+            // },
             cost: this.calculateCurrent(),
         };
     }
