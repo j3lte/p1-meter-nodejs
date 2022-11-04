@@ -19,7 +19,12 @@ startSerial(parsed);
 app.use(async (ctx) => {
     ctx.status = 200;
     ctx.set("Content-Type", "application/json");
-    ctx.body = parsed.info;
+    ctx.body = {
+        stack: parsed.stack,
+        error: parsed.errorStack,
+        last: parsed.lastUpdated,
+        info: parsed.info,
+    };
 });
 
 app.listen(serverPort);
