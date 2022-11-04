@@ -53,7 +53,7 @@ export const CODES: Code[] = [
         identifier: "Timestamp",
         fix: (line) => {
             const timeStapStr = line.replace(
-                /\d\-\d:\d{1,2}\.\d{1,2}\.\d{1,2}\(([\d.]+)(s|S)\)/,
+                /\d\-\d:\d{1,2}\.\d{1,2}\.\d{1,2}\(([\d.]+)(\w)\)/,
                 "$1"
             );
             const arr = timeStapStr.match(/.{1,2}/g);
