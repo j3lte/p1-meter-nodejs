@@ -1,5 +1,5 @@
 import Koa from "koa";
-import { mqttTopic, serverPort } from "./env";
+import { mqttTopic, serverPort, ignoreTS } from "./env";
 import { MQTT } from "./mqtt";
 import { Parsed } from "./parser/Parsed";
 import { startSerial } from "./serial";
@@ -37,7 +37,7 @@ setInterval(() => {
         !mqtt.client ||
         !mqtt.client.connected ||
         parsed.info.ts === 0 ||
-        parsed.info.ts === lastTimeStamp
+        (parsed.info.ts === lastTimeStamp && ignoreTS === "false")
     ) {
         return;
     }

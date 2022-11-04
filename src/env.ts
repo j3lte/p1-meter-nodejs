@@ -1,5 +1,6 @@
 export const mqttHost = process.env.MQTT_HOST || "mqtt";
 export const mqttTopic = process.env.MQTT_TOPIC || "energy";
+export const ignoreTS = process.env.IGNORE_TS || "false";
 
 export const tarieven = {
     normaal: process.env.TARIEF_NORMAAL

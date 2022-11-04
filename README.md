@@ -20,6 +20,7 @@ The following environment variables are used:
 
 - `MQTT_HOST` - The host of the MQTT broker, default is `mqtt` (I used this in a docker-compose file)
 - `MQTT_TOPIC` - The topic to publish the data to, default is `energy`
+- `IGNORE_TS` - Set this to `true` to ignore the timestamp in the P1 telegram, default is `false`
 - `TARIEF_NORMAAL` - The normal tariff (should be a floating point in €/kWh) (optional, I calculate this in a separate process)
 - `TARIEF_DAL` - The low tariff (should be a floating point in €/kWh) (optional, I calculate this in a separate process)
 - `SERVER_PORT` - The port to run the server on, default is `3000`
