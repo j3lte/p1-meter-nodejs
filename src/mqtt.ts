@@ -15,7 +15,8 @@ export class MQTT {
         console.log(`==== Start MQTT (${mqtthost}) ====`);
 
         this.client = mqtt.connect(mqtthost, {
-            reconnectPeriod: 5 * 60000,
+            reconnectPeriod: 15 * 1000,
+            connectTimeout: 60 * 1000,
             keepalive: 60,
         });
         this.client.on("connect", () => {
